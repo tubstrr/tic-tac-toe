@@ -43,6 +43,15 @@ class Game extends React.Component {
             return (
                 <li>
                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <style jsx>{`
+                        button {
+                            background:transparent;
+                            border:none;
+                            font-style:italic;
+                            text-align:left;
+                            padding:0;
+                        }
+                    `}</style>
                 </li>
             );
         });
@@ -63,14 +72,19 @@ class Game extends React.Component {
                     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
                 </Head>
                 <div className="game-info">
-                    <div>{status}</div>
-                    <ol>{moves}</ol>
+                    <h1>{status}</h1>
                 </div>
-                <div className="game-board">
-                    <Board 
-                        squares={current.squares}
-                        onClick={(i) => this.handleClick(i)}
-                    />
+                <div className="game-container">
+                    <div className="game-board">
+                        <Board 
+                            squares={current.squares}
+                            onClick={(i) => this.handleClick(i)}
+                            />
+                    </div>
+                    <div className="game-moves">
+                        <h2>Game Moves:</h2>
+                        <ol>{moves}</ol>
+                    </div>
                 </div>
                 <style jsx global>{`
                     body {
@@ -84,20 +98,39 @@ class Game extends React.Component {
                 <style jsx>{`
                     .game {
                         display: flex;
-                        flex-wrap:wrap;
+                        flex-direction:column;
+                        align-items:start;
                         padding:1em;
                         background:#efefef;
+                        min-height:calc(100vh - 2em);
                     }
                     .game-info {
                         width:100%;
                     }
-                    .game-board {
+                    .game-container {
                         width:100%;
-                        max-width:100%;
+                        display:flex;
+                        justify-content:space-between;
+
+                    }
+                    .game-board {
+                        width:calc(70% - 3em);
                         overflow:hidden;
                         border-radius:.3em;
                         background:#fefefe;
-                        padding:3em;
+                        padding:1.5em;
+                    }
+                    .game-moves {
+                        width:25%;
+                    }
+                    ol {
+                        list-style:none;
+                        margin:none;
+                        padding:0;
+                    }
+                    h2 {
+                        font-size:.9em;
+                        margin-top:0;
                     }
                 `}</style>
             </div>
