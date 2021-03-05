@@ -47,18 +47,29 @@ class Game extends React.Component {
 
         const moves = history.map((step, move) => {
             const desc = move ?
-                `See move #${move}` :
-                `Go to the beginning`;
+                `Move #${move}` :
+                `RESET`;
             return (
-                <li>
+                <li key={step}>
                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
                     <style jsx>{`
                         button {
-                            background:transparent;
                             border:none;
-                            font-style:italic;
                             text-align:left;
-                            padding:0;
+                            padding:1em;
+                            width:100%;
+                            border-radius:.3em;
+                            text-align:center;
+                            margin-bottom:1em;
+                            background:#dedede;
+                            transition:375ms;
+                        }
+                        button:focus{
+                            outline:none;
+                        }
+                        button:active,button:hover {
+                            transform:scale(.9);
+                            opacity:.7
                         }
                     `}</style>
                 </li>
@@ -103,7 +114,7 @@ class Game extends React.Component {
                             />
                     </div>
                     <div className="game-moves">
-                        <h2>Game Moves:</h2>
+                        <h2>Game Log:</h2>
                         <ol>{moves}</ol>
                     </div>
                 </div>
@@ -136,8 +147,8 @@ class Game extends React.Component {
                         width:100%;
                         display:flex;
                         justify-content:space-between;
-
                     }
+                    
                     .game-board {
                         width:calc(70% - 3em);
                         overflow:hidden;
@@ -156,6 +167,18 @@ class Game extends React.Component {
                     h2 {
                         font-size:.9em;
                         margin-top:0;
+                    }
+                    @media(max-width:767px) {
+                        .game-container {
+                            flex-wrap:wrap;
+                        }
+                        .game-board {
+                            width:100%;
+                        }
+                        .game-moves {
+                            width:100%;
+                            margin-top:3em;
+                        }
                     }
                 `}</style>
             </div>
