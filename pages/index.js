@@ -75,9 +75,21 @@ class Game extends React.Component {
         return (
             <div className="game">
                 <Head>
+                    <meta charset='utf-8' />
+                    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+                    <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
+                    <meta name='description' content='Description' />
+                    <meta name='keywords' content='Keywords' />
                     <title>Tic-Tac-Toe | Powered by React, totally just did the tutoral and didn't really code any of this.</title>
                     <meta property="og:description" content="I mean I did code this in Next.js, and had to break up the components and so forth, but I didn't really change anything." />
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+                    <link rel="manifest" href="/manifest.json" />
+                    <link href='/favi.png' rel='icon' type='image/png' sizes='16x16' />
+                    <link href='/favi.png' rel='icon' type='image/png' sizes='32x32' />
+                    <link rel="apple-touch-icon" href="/favi.png"></link>
+                    <link rel="shortcut icon" href="/favi.png" />
+                    <meta name="theme-color" content="#000000"/>
+
                     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
                 </Head>
                 <div className="game-info">
