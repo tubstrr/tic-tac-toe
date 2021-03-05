@@ -1,6 +1,7 @@
 body {
   font-family: 'Nunito', sans-serif;
   margin: 20px;
+  background:#efefef;
 }
 
 ol, ul {
@@ -43,6 +44,8 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  max-width: 600px;
+  margin: auto;
 }
 
 .game-info {

@@ -10,7 +10,7 @@ function Square(props) {
                     height:33.333%;
                     background: #fff;
                     border: 1px solid #999;
-                    font-size: 15vw;
+                    font-size: calc(2em + 5vw);
                     font-weight: bold;
                     line-height: 0;
                     display: flex;
